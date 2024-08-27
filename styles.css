@@ -1,0 +1,88 @@
+/* Fullscreen background */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Container to center the content */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background pattern */
+.pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-radial-gradient(circle at center, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 1px, transparent 1px, transparent 50px);
+    animation: pulsate 2s infinite;
+}
+
+/* Pulsating animation */
+@keyframes pulsate {
+    0% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.6; }
+}
+
+/* Background image with fade effect */
+body {
+    background: url('yellow-car.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Black fade */
+    z-index: -1; /* Place behind other content */
+}
+
+/* Artistic button styling */
+#trickyButton {
+    position: absolute;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease-out, background 0.3s;
+    text-align: center;
+}
+
+/* Button hover effect */
+#trickyButton:hover {
+    background: linear-gradient(135deg, #fad0c4 0%, #ff9a9e 100%);
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #trickyButton {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
